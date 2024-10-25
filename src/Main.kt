@@ -47,11 +47,12 @@ fun main() {
     }
 keyboard.close()
 }
+
 @Throws(IOException::class)
-fun sortCsvMenu(path:String,scanner: Scanner): Void{
-    val csvList: List<SortCsv> = CsvReader.readCsv(path)
+fun sortCsvMenu(path:String,scanner: Scanner): Void {
+    var csvList: List<SortCSV> = CsvReader.readCsv(path)
     var exit = false
-    while(!exit){
+    while (!exit) {
         println("\nSorting Menu:")
         println("A - Sort by Income")
         println("B - Sort by Expenses")
@@ -62,13 +63,19 @@ fun sortCsvMenu(path:String,scanner: Scanner): Void{
 
         val sortOption = scanner.nextLine().toUpperCase()
 
-        when(sortOption){
-            "A" ->
-            "B" ->
-            "C" ->
-            "D" -> csvList.sortedWith(csvIncomeComparator)
+        when (sortOption) {
+            "A" -> csvList = csvList.sortedWith(CsvIncomeComparator())
+            "B" -> csvList = csvList.sortedWith(CsvExpensesComparator())
+            "C" -> csvList = csvList.sortedWith(CsvInterestComparator())
+            "D" -> csvList = csvList.sortedWith(CsvDebtLoanComparator())
             "Q" -> exit = true
             else -> println("Invalid option.Please try again.")
         }
+
+    }
+    println("Sorted Data: ")
+    for (s in csvList) {
+        println(s)
     }
 }
+
