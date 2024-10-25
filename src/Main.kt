@@ -49,7 +49,8 @@ keyboard.close()
 }
 @Throws(IOException::class)
 fun sortCsvMenu(path:String,scanner: Scanner): Void{
-var exit = false
+    val csvList: List<SortCsv> = CsvReader.readCsv(path)
+    var exit = false
     while(!exit){
         println("\nSorting Menu:")
         println("A - Sort by Income")
