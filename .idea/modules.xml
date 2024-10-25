@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CSV_Editor_KotlinVersion.iml" filepath="$PROJECT_DIR$/CSV_Editor_KotlinVersion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/CSV_Editor_KotlinVersion.iml" filepath="$PROJECT_DIR$/src/CSV_Editor_KotlinVersion.iml" />
     </modules>
   </component>
 </project>
