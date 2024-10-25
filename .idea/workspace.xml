@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="440c9c18-df55-48d5-a2ef-b812725940fe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/CsvReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CsvReader.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CsvWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CsvWriter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
