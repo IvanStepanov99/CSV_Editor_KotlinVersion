@@ -29,11 +29,11 @@ fun main() {
             keyboard.nextLine()
 
             when(option){
-                1 -> println("Total Income: $" + calculation.sumOfImcome(filePath))
+                1 -> println("Total Income: $" + calculation.sumOfIncome(filePath))
                 2 -> println("Total Expenses: $" + calculation.sumOfExpense(filePath))
                 3 -> println("Net Income: $" + calculation.netIncome(filePath))
                 4 -> println("Total of Debt/Loan: $" + calculation.sumOfDebt(filePath))
-                5 -> println("Average Interest Rate: $" + calculation.sumOfImcome(filePath))
+                5 -> println("Average Interest Rate: $" + calculation.averageInterestRate(filePath))
                 6 -> sortCsvMenu(filePath, keyboard)
                 7 -> writer.writeToCsv(filePath, keyboard)
                 8 -> exit = true
