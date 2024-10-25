@@ -1,5 +1,6 @@
 import java.io.IOException
 import java.util.Scanner
+import kotlin.math.sqrt
 
 fun main() {
     val filePath = "Data.csv"
@@ -48,5 +49,25 @@ keyboard.close()
 }
 @Throws(IOException::class)
 fun sortCsvMenu(path:String,scanner: Scanner): Void{
+var exit = false
+    while(!exit){
+        println("\nSorting Menu:")
+        println("A - Sort by Income")
+        println("B - Sort by Expenses")
+        println("C - Sort by Interest")
+        println("D - Sort by Debt/Loan")
+        println("Q - Quit")
+        print("Select an option: ")
 
+        val sortOption = scanner.nextLine().toUpperCase()
+
+        when(sortOption){
+            "A" ->
+            "B" ->
+            "C" ->
+            "D" -> csvList.sortedWith(csvIncomeComparator)
+            "Q" -> exit = true
+            else -> println("Invalid option.Please try again.")
+        }
+    }
 }
