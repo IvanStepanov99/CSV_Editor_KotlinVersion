@@ -21,6 +21,7 @@ fun main() {
             println("7. Add data to the CSV file")
             println("8. Quit")
             print("Please select an option: ")
+
             if (!keyboard.hasNextInt()) {
                 println("Invalid input. Please enter a number.")
                 keyboard.nextLine()
@@ -28,6 +29,7 @@ fun main() {
             }
             val option = keyboard.nextInt()
             keyboard.nextLine()
+
             when (option) {
                 1 -> println("Total Income: $" + calculation.sumOfIncome(filePath))
                 2 -> println("Total Expenses: $" + calculation.sumOfExpense(filePath))
@@ -39,6 +41,7 @@ fun main() {
                 8 -> exit = true
                 else -> println("Invalid option. Please try again!")
             }
+
         } catch (e: IOException) {
             println("An error occurred: ${e.message}")
             keyboard.nextLine()
@@ -59,7 +62,9 @@ fun sortCsvMenu(path: String, scanner: Scanner) {
         println("D - Sort by Debt/Loan")
         println("Q - Quit")
         print("Select an option: ")
+
         val sortOption = scanner.nextLine().uppercase()
+
         when (sortOption) {
             "A" -> csvList = csvList.sortedWith(CsvIncomeComparator())
             "B" -> csvList = csvList.sortedWith(CsvExpensesComparator())
