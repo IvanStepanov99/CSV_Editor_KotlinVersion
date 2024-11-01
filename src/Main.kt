@@ -9,9 +9,9 @@ fun main() {
     val calculation = CalculationCsv()
     val writer = CsvWriter()
 
-    while (!exit){
+    while (!exit) {
         try {
-            println("\nMenu:");
+            println("\nMenu:")
             println("1. Total of Income")
             println("2. Total of Expenses")
             println("3. Net Income (Savings)")
@@ -21,14 +21,14 @@ fun main() {
             println("7. Add data to the CSV file")
             println("8. Quit")
             print("Please select an option: ")
-
-            if(!keyboard.hasNextInt()){
-               keyboard.nextLine()
+            if (!keyboard.hasNextInt()) {
+                println("Invalid input. Please enter a number.")
+                keyboard.nextLine()
+                continue
             }
             val option = keyboard.nextInt()
             keyboard.nextLine()
-
-            when(option){
+            when (option) {
                 1 -> println("Total Income: $" + calculation.sumOfIncome(filePath))
                 2 -> println("Total Expenses: $" + calculation.sumOfExpense(filePath))
                 3 -> println("Net Income: $" + calculation.netIncome(filePath))
@@ -39,17 +39,16 @@ fun main() {
                 8 -> exit = true
                 else -> println("Invalid option. Please try again!")
             }
-
-        }catch (e: IOException){
+        } catch (e: IOException) {
+            println("An error occurred: ${e.message}")
             keyboard.nextLine()
         }
-
     }
-keyboard.close()
+    keyboard.close()
 }
 
 @Throws(IOException::class)
-fun sortCsvMenu(path:String,scanner: Scanner) {
+fun sortCsvMenu(path: String, scanner: Scanner) {
     var csvList: List<SortCSV> = CsvReader.readCsv(path)
     var exit = false
     while (!exit) {
@@ -60,22 +59,18 @@ fun sortCsvMenu(path:String,scanner: Scanner) {
         println("D - Sort by Debt/Loan")
         println("Q - Quit")
         print("Select an option: ")
-
-        val sortOption = scanner.nextLine().toUpperCase()
-
+        val sortOption = scanner.nextLine().uppercase()
         when (sortOption) {
             "A" -> csvList = csvList.sortedWith(CsvIncomeComparator())
             "B" -> csvList = csvList.sortedWith(CsvExpensesComparator())
             "C" -> csvList = csvList.sortedWith(CsvInterestComparator())
             "D" -> csvList = csvList.sortedWith(CsvDebtLoanComparator())
             "Q" -> exit = true
-            else -> println("Invalid option.Please try again.")
+            else -> println("Invalid option. Please try again.")
         }
-
     }
     println("Sorted Data: ")
     for (s in csvList) {
         println(s)
     }
 }
-
