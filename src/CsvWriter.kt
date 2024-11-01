@@ -22,8 +22,9 @@ fun writeToCsv(path:String, keyboard: Scanner){
             val typeOfLoan = keyboard.nextLine()
 
             println("Would you like to continue? yes/no")
+            val toContinue = keyboard.nextLine()
 
-        }while (toContinue.equalsIgnoreCase("yes"))
+        }while (toContinue.equals("YES",true))
 
         println("Data succsessfully added to the $path")
     }catch (e: IOException){

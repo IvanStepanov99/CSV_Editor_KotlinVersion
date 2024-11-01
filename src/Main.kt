@@ -49,7 +49,7 @@ keyboard.close()
 }
 
 @Throws(IOException::class)
-fun sortCsvMenu(path:String,scanner: Scanner): Void {
+fun sortCsvMenu(path:String,scanner: Scanner) {
     var csvList: List<SortCSV> = CsvReader.readCsv(path)
     var exit = false
     while (!exit) {
