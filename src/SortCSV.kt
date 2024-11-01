@@ -7,20 +7,18 @@ data class SortCSV(
     val debtLoan: BigDecimal,
     val typeOfLoan: String
 ) {
-override fun toString(): String{
-    return "$income,$expense,$interest,$debtLoan,$typeOfLoan"
+    override fun toString(): String{
+
+        return "$income,$expense,$interest,$debtLoan,$typeOfLoan"
     }
 }
 class CsvIncomeComparator: Comparator<SortCSV>{
     override fun compare(b1: SortCSV, b2: SortCSV): Int {
-        return b1.income.compareTo(b2.income)
-    }
+        return b1.income.compareTo(b2.income) }
 }
-
 class CsvExpensesComparator: Comparator<SortCSV>{
     override fun compare(b1: SortCSV, b2: SortCSV): Int {
-        return b1.expense.compareTo(b2.expense)
-    }
+        return b1.expense.compareTo(b2.expense) }
 }
 
 class CsvInterestComparator: Comparator<SortCSV>{

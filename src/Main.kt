@@ -3,7 +3,7 @@ import java.util.Scanner
 import kotlin.math.sqrt
 
 fun main() {
-    val filePath = "Data.csv"
+    val filePath = "/Users/ivanstepanov/Desktop/git/CSV_Editor_KotlinVersion/src/Data.csv"
     val keyboard = Scanner(System.`in`)
     var exit = false
     val calculation = CalculationCsv()
@@ -51,7 +51,9 @@ fun main() {
 }
 
 @Throws(IOException::class)
+
 fun sortCsvMenu(path: String, scanner: Scanner) {
+
     var csvList: List<SortCSV> = CsvReader.readCsv(path)
     var exit = false
     while (!exit) {
@@ -61,10 +63,10 @@ fun sortCsvMenu(path: String, scanner: Scanner) {
         println("C - Sort by Interest")
         println("D - Sort by Debt/Loan")
         println("Q - Quit")
+
         print("Select an option: ")
 
         val sortOption = scanner.nextLine().uppercase()
-
         when (sortOption) {
             "A" -> csvList = csvList.sortedWith(CsvIncomeComparator())
             "B" -> csvList = csvList.sortedWith(CsvExpensesComparator())
@@ -73,9 +75,9 @@ fun sortCsvMenu(path: String, scanner: Scanner) {
             "Q" -> exit = true
             else -> println("Invalid option. Please try again.")
         }
+        println("Sorted Data: ")
+        for (s in csvList) {
+            println(s)
     }
-    println("Sorted Data: ")
-    for (s in csvList) {
-        println(s)
     }
 }

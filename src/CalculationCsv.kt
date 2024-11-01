@@ -2,6 +2,7 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.math.BigDecimal
 import java.io.IOException
+import java.math.RoundingMode
 
 class CalculationCsv {
     fun sumOfIncome(path: String): BigDecimal {
@@ -93,7 +94,7 @@ class CalculationCsv {
         return totalDebt
     }
     fun averageInterestRate(path: String):BigDecimal{
-        val totalWeighted = BigDecimal.ZERO
+        var totalWeighted = BigDecimal.ZERO
 
         try{
             BufferedReader(FileReader(path)).use { br ->
@@ -109,7 +110,7 @@ class CalculationCsv {
                         val interestRate = values[3].toBigDecimal()
                         val debtLoan = values[2].toBigDecimal()
 
-                        val totalWeighted = totalWeighted.add(debtLoan.multiply(interestRate))
+                         totalWeighted = totalWeighted.add(debtLoan.multiply(interestRate))
                     } catch (e: NumberFormatException) {
                         System.err.println("Invalid value in line $line")
                     }
@@ -118,7 +119,7 @@ class CalculationCsv {
                     return BigDecimal.ZERO
                 }
 
-                return totalWeighted.divide(sumOfDebt(path), 2, BigDecimal.ROUND_HALF_UP)
+                return totalWeighted.divide(sumOfDebt(path), 2, RoundingMode.HALF_UP)
             }
         }catch (e: IOException){
             e.printStackTrace()
