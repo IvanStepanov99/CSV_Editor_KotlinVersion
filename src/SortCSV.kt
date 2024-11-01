@@ -8,7 +8,6 @@ data class SortCSV(
     val typeOfLoan: String
 ) {
     override fun toString(): String{
-
         return "$income,$expense,$interest,$debtLoan,$typeOfLoan"
     }
 }

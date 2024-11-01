@@ -5,6 +5,7 @@ import java.math.BigDecimal
 import java.util.Scanner
 
 class CsvWriter{
+    @Throws(IOException::class)
 fun writeToCsv(path:String, keyboard: Scanner){
     try {
         PrintWriter(FileWriter(path,true)).use { pw ->
@@ -23,7 +24,6 @@ fun writeToCsv(path:String, keyboard: Scanner){
 
                 println("Please enter type of loan: ")
                 val typeOfLoan = keyboard.nextLine()
-
                 pw.println("$income,$expense,$interest,$debtLoan,$typeOfLoan");
 
                 println("Would you like to continue? yes/no")
@@ -33,8 +33,8 @@ fun writeToCsv(path:String, keyboard: Scanner){
 
             println("Data succsessfully added to the $path")
         }
-    }catch (e: IOException){
-        e.printStackTrace()
+      }catch (e: IOException){
+          e.printStackTrace()
     }
 }
 }

@@ -14,7 +14,7 @@ fun main() {
             println("\nMenu:")
             println("1. Total of Income")
             println("2. Total of Expenses")
-            println("3. Net Income (Savings)")
+            println("3. Net Income")
             println("4. Total of Debt/Loan")
             println("5. Average Interest Rate")
             println("6. Sort the CSV file")
